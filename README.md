@@ -2,5 +2,5 @@
 
 ![Rocketseat](https://rocketseat.com.br/static/og.png)
 
-Conteúdos abordados no curso GoStack da Rocketseat 🚀
-Módulo: GoNode
+<p>Conteúdos abordados no curso GoStack da Rocketseat 🚀</p><br />
+<p>Módulo: <strong>GoNode</strong></p>
