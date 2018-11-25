@@ -7,6 +7,11 @@ const routes = express.Router()
 const SessionController = require('./app/controllers/SessionController')
 const UserController = require('./app/controllers/UserController')
 
+routes.get('/app/dashboard', (req, res) => {
+  console.log(req.session)
+  return res.render('dashboard')
+})
+
 routes.get('/', SessionController.create)
 routes.post('/signin', SessionController.store)
 
