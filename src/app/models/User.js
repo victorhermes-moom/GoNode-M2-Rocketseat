@@ -7,5 +7,5 @@ module.exports = (sequelize, DataTypes) => {
     provider: DataTypes.BOOLEAN
   })
 
-  return user
+  return User
 }
