@@ -208,6 +208,7 @@ ul.providers {
 .provider img {
   width: 48px;
   height: 48px;
+  object-fit: cover;
   border-radius: 50%;
 }
 

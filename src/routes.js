@@ -7,6 +7,7 @@ const routes = express.Router()
 const guestMiddleware = require('./app/middlewares/guest')
 const authMiddleware = require('./app/middlewares/auth')
 
+const FileController = require('./app/controllers/FileController')
 const DashboardController = require('./app/controllers/DashboardController')
 const SessionController = require('./app/controllers/SessionController')
 const UserController = require('./app/controllers/UserController')
@@ -17,6 +18,8 @@ routes.use((req, res, next) => {
 
   return next()
 })
+
+routes.get('/files/:file', FileController.show)
 
 routes.get('/', guestMiddleware, SessionController.create)
 routes.post('/signin', SessionController.store)
