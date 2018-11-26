@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <form action="/app/appointments/new/{{ prover.id }}" method="POST">
+    <form action="/app/appointments/new/{{ provider.id }}" method="POST">
       <input type="text" class="flatpickr" placeholder="Escolha uma data">
 
       <div id="hours">
@@ -22,15 +22,13 @@
 
     <a href="/app/dashboard" class="logout" style="margin-top: 5px">Voltar</a>
 
-  </div>
-
   <script type="text/javascript">
     flatpickr('.flatpickr', {
       minDate: new Date(),
       dateFormat: 'd/m/Y',
-      onChange: function(date) {
-        fetch(`/app/available/{{ provider.id }}?date=${date[0].getTime()}`).then(function(response) {
-          response.text().then(function(html) {
+      onChange: function (date) {
+        fetch(`/app/available/{{ provider.id }}?date=${date[0].getTime()}`).then(function (response) {
+          response.text().then(function (html) {
             document.getElementById('hours').innerHTML = html
           })
         })
