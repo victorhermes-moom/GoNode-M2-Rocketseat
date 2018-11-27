@@ -6,20 +6,19 @@
 
     <div class="provider">
       <div>
-        <img src="/files/{{ provider.avatar }}">
+        <img src="/files/{{ provider.avatar }}" />
         <strong>{{ provider.name }}</strong>
       </div>
     </div>
 
-    <form action="/app/appointments/new/{{ provider.id }}" method="POST">
+    <form action="/app/appointments/new/{{ provider.id }}" method="post">
       <input type="text" class="flatpickr" placeholder="Escolha uma data">
 
-      <div id="hours">
-      </div>
+      <div id="hours"></div>
 
-      <button type="submit" >Agendar</button>
+      <button type="submit">Agendar</button>
     </form>
-    <a href="/app/dashboard" class="logout" style="margin-top: 5px">Voltar</a>
+  </div>
 
   <script type="text/javascript">
     flatpickr('.flatpickr', {

@@ -4,19 +4,19 @@ const upload = require('multer')(multerConfig)
 
 const routes = express.Router()
 
-const guestMiddleware = require('./app/middlewares/guest')
 const authMiddleware = require('./app/middlewares/auth')
+const guestMiddleware = require('./app/middlewares/guest')
 
-const FileController = require('./app/controllers/FileController')
-const DashboardController = require('./app/controllers/DashboardController')
-const SessionController = require('./app/controllers/SessionController')
 const UserController = require('./app/controllers/UserController')
+const SessionController = require('./app/controllers/SessionController')
+const DashboardController = require('./app/controllers/DashboardController')
+const FileController = require('./app/controllers/FileController')
 const AppointmentController = require('./app/controllers/AppointmentController')
-const AvaliableController = require('./app/controllers/AvailableController')
+const AvailableController = require('./app/controllers/AvailableController')
 const ScheduleController = require('./app/controllers/ScheduleController')
 
 routes.use((req, res, next) => {
-  res.locals.flashSuccess = req.flash('success')
+  res.locals.flashSucces = req.flash('success')
   res.locals.flashError = req.flash('error')
 
   return next()
@@ -38,8 +38,7 @@ routes.get('/app/dashboard', DashboardController.index)
 
 routes.get('/app/appointments/new/:provider', AppointmentController.create)
 routes.post('/app/appointments/new/:provider', AppointmentController.store)
-
-routes.get('/app/available/:provider', AvaliableController.index)
+routes.get('/app/available/:provider', AvailableController.index)
 
 routes.get('/app/schedule', ScheduleController.index)
 

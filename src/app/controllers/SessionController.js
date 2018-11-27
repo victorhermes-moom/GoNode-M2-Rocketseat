@@ -1,6 +1,6 @@
 const { User } = require('../models')
 
-class SessionControler {
+class SessionController {
   async create (req, res) {
     return res.render('auth/signin')
   }
@@ -16,11 +16,12 @@ class SessionControler {
     }
 
     if (!(await user.checkPassword(password))) {
-      req.flash('error', 'Senha está incorreta')
+      req.flash('error', 'Senha incorreta')
       return res.redirect('/')
     }
 
     req.session.user = user
+
     return res.redirect('/app/dashboard')
   }
 
@@ -32,4 +33,4 @@ class SessionControler {
   }
 }
 
-module.exports = new SessionControler()
+module.exports = new SessionController()

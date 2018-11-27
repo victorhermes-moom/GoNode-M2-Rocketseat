@@ -4,6 +4,6 @@ module.exports = (req, res, next) => {
 
     return next()
   }
-  console.log('Acesso somente para assinantes')
+
   return res.redirect('/')
 }

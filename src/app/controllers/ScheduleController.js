@@ -5,23 +5,25 @@ const moment = require('moment')
 class ScheduleController {
   async index (req, res) {
     const appointments = await Appointment.findAll({
-      include: [{ model: User }],
+      include: [{ model: User, as: 'user' }],
       where: {
         provider_id: req.session.user.id,
         date: {
           [Op.between]: [
             moment()
+              .add(1, 'day')
               .startOf('day')
               .format(),
             moment()
+              .add(1, 'day')
               .endOf('day')
               .format()
           ]
         }
       }
     })
-    console.log(appointments)
-    return res.render('schedule/create_schedule', { appointments })
+
+    return res.render('schedule/index', { appointments })
   }
 }
 
